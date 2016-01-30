@@ -35,6 +35,7 @@ public class GameStage extends Stage implements ContactListener {
     private OrthographicCamera camera;
     private Box2DDebugRenderer renderer;
 
+    private Rectangle screenLeftSide;
     private Rectangle screenRightSide;
 
     private Vector3 touchPoint;
@@ -72,6 +73,7 @@ public class GameStage extends Stage implements ContactListener {
 
     private void setupTouchControlAreas() {
         touchPoint = new Vector3();
+        screenLeftSide = new Rectangle(0,0,getCamera().viewportWidth/2,getCamera().viewportHeight);
         screenRightSide = new Rectangle(getCamera().viewportWidth / 2, 0, getCamera().viewportWidth / 2,
                 getCamera().viewportHeight);
         Gdx.input.setInputProcessor(this);
@@ -107,13 +109,26 @@ public class GameStage extends Stage implements ContactListener {
 
         if (rightSideTouched(touchPoint.x, touchPoint.y)) {
             runner.jump();
+        }else if(leftSideTouched(touchPoint.x,touchPoint.y)){
+            runner.dodge();
         }
 
         return super.touchDown(x, y, pointer, button);
     }
 
+    public boolean touchUp(int screenX, int screenY, int pointer, int button){
+        if(runner.isDodging()){
+            runner.stopDodge();
+        }
+        return super.touchUp(screenX,screenY,pointer,button);
+    }
+
     private boolean rightSideTouched(float x, float y) {
         return screenRightSide.contains(x, y);
+    }
+
+    private boolean leftSideTouched(float x, float y){
+        return screenLeftSide.contains(x,y);
     }
 
     /*
