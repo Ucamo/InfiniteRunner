@@ -13,6 +13,8 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
+import com.ranacalva.infiniterunner.actors.Enemy;
 import com.ranacalva.infiniterunner.actors.Ground;
 import com.ranacalva.infiniterunner.actors.Runner;
 import com.ranacalva.infiniterunner.utils.BodyUtils;
@@ -53,6 +55,7 @@ public class GameStage extends Stage implements ContactListener {
         world.setContactListener(this);
         setUpGround();
         setUpRunner();
+        createEnemy();
     }
 
     private void setUpGround(){
@@ -83,15 +86,22 @@ public class GameStage extends Stage implements ContactListener {
     public void act(float delta){
         super.act(delta);
 
+        Array<Body> bodies = new Array<Body>(world.getBodyCount());
+        world.getBodies(bodies);
+
+        for(Body body : bodies){
+            update(body);
+        }
+
         // Fixed timestep
         accumulator+=delta;
 
-        while (accumulator>=delta){
+        while(accumulator>=delta){
             world.step(TIME_STEP,6,2);
             accumulator-=TIME_STEP;
         }
 
-        // TODO: Implement interpolation
+        //TODO: Implement interpolation
 
     }
 
@@ -120,7 +130,7 @@ public class GameStage extends Stage implements ContactListener {
         if(runner.isDodging()){
             runner.stopDodge();
         }
-        return super.touchUp(screenX,screenY,pointer,button);
+        return super.touchUp(screenX, screenY, pointer, button);
     }
 
     private boolean rightSideTouched(float x, float y) {
@@ -146,8 +156,9 @@ public class GameStage extends Stage implements ContactListener {
         Body a = contact.getFixtureA().getBody();
         Body b = contact.getFixtureB().getBody();
 
-        if ((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsGround(b)) ||
-                (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsRunner(b))) {
+        if((BodyUtils.bodyIsRunner(a) && BodyUtils.bodyIsEnemy(b)) || (BodyUtils.bodyIsEnemy(a)&&BodyUtils.bodyIsRunner(b))){
+            runner.hit();
+        }else if((BodyUtils.bodyIsRunner(a)&&BodyUtils.bodyIsGround(b)) || (BodyUtils.bodyIsGround(a) && BodyUtils.bodyIsRunner(b))){
             runner.landed();
         }
 
@@ -167,4 +178,22 @@ public class GameStage extends Stage implements ContactListener {
     public void postSolve(Contact contact, ContactImpulse impulse){
 
     }
+
+
+
+    public void update(Body body){
+        if(!BodyUtils.bodyInBounds(body)){
+            if(BodyUtils.bodyIsEnemy(body) && !runner.isHit()){
+                createEnemy();
+            }
+            world.destroyBody(body);
+        }
+    }
+
+    private void createEnemy(){
+        Enemy enemy = new Enemy(WorldUtils.createEnemy(world));
+        addActor(enemy);
+    }
+
+
 }
