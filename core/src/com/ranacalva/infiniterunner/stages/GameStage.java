@@ -14,18 +14,22 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.ranacalva.infiniterunner.actors.Background;
 import com.ranacalva.infiniterunner.actors.Enemy;
 import com.ranacalva.infiniterunner.actors.Ground;
 import com.ranacalva.infiniterunner.actors.Runner;
 import com.ranacalva.infiniterunner.utils.BodyUtils;
+import com.ranacalva.infiniterunner.utils.Constants;
 import com.ranacalva.infiniterunner.utils.WorldUtils;
 
 
 
 public class GameStage extends Stage implements ContactListener {
     // This will be our viewport measurements while working with the debug renderer
-    private static final int VIEWPORT_WIDTH=20;
-    private static final int VIEWPORT_HEIGHT=13;
+    private static final int VIEWPORT_WIDTH= Constants.APP_WIDTH;
+    private static final int VIEWPORT_HEIGHT=Constants.APP_HEIGHT;
 
     private World world;
     private Ground ground;
@@ -43,19 +47,26 @@ public class GameStage extends Stage implements ContactListener {
     private Vector3 touchPoint;
 
     public GameStage(){
+        super(new ScalingViewport(Scaling.stretch, VIEWPORT_WIDTH, VIEWPORT_HEIGHT,
+                new OrthographicCamera(VIEWPORT_WIDTH, VIEWPORT_HEIGHT)));
         setUpWorld();
         setupCamera();
         setupTouchControlAreas();
-        renderer = new Box2DDebugRenderer();
+       // renderer = new Box2DDebugRenderer();
     }
 
     private void setUpWorld(){
         world= WorldUtils.createWorld();
         //Let the world know you are handling contacts
         world.setContactListener(this);
+        setUpBackground();
         setUpGround();
         setUpRunner();
         createEnemy();
+    }
+
+    private void setUpBackground() {
+        addActor(new Background());
     }
 
     private void setUpGround(){
@@ -105,11 +116,11 @@ public class GameStage extends Stage implements ContactListener {
 
     }
 
-    @Override
-    public void draw(){
-        super.draw();
-        renderer.render(world,camera.combined);
-    }
+    //@Override
+    //public void draw(){
+    //    super.draw();
+    //    renderer.render(world,camera.combined);
+    //}
 
     @Override
     public boolean touchDown(int x, int y, int pointer, int button) {
