@@ -7,19 +7,26 @@ import com.ranacalva.infiniterunner.utils.Constants;
 
 public class EnemyUserData extends UserData {
 
-    private Vector2 linearVelicity;
+    private Vector2 linearVelocity;
+    private String[] textureRegions;
 
-    public EnemyUserData(float width, float height){
-        super(width,height);
+
+    public EnemyUserData(float width, float height, String[] textureRegions) {
+        super(width, height);
         userDataType = UserDataType.ENEMY;
-        linearVelicity= Constants.ENEMY_LINEAR_VELOCITY;
+        linearVelocity = Constants.ENEMY_LINEAR_VELOCITY;
+        this.textureRegions = textureRegions;
     }
 
-    public void setLinearVelicity(Vector2 linearVelicity){
-        this.linearVelicity=linearVelicity;
+    public void setLinearVelocity(Vector2 linearVelocity) {
+        this.linearVelocity = linearVelocity;
     }
 
     public Vector2 getLinearVelicity(){
-        return linearVelicity;
+        return linearVelocity;
+    }
+
+    public String[] getTextureRegions(){
+        return  textureRegions;
     }
 }
