@@ -7,6 +7,7 @@ public class Constants {
     public static final int APP_WIDTH = 800;
     public static final int APP_HEIGHT = 480;
     public static final Vector2 WORLD_GRAVITY = new Vector2(0, -10);
+    public static final float WORLD_TO_SCREEN=32;
 
     public static final float GROUND_X = 0;
     public static final float GROUND_Y = 0;
@@ -38,5 +39,6 @@ public class Constants {
 
     //Images
     public static final String BACKGROUND_IMAGE_PATH = "background.png";
+    public static final String GROUND_IMAGE_PATH="ground.png";
 
 }
