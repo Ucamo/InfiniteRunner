@@ -23,6 +23,7 @@ public class GameScreen implements Screen {
         stage.draw();
         stage.act(delta);
 
+
     }
 
     @Override

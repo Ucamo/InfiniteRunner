@@ -16,10 +16,12 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.ranacalva.infiniterunner.InfiniteRunnerClass;
 import com.ranacalva.infiniterunner.actors.Background;
 import com.ranacalva.infiniterunner.actors.Enemy;
 import com.ranacalva.infiniterunner.actors.Ground;
 import com.ranacalva.infiniterunner.actors.Runner;
+import com.ranacalva.infiniterunner.screens.GameScreen;
 import com.ranacalva.infiniterunner.utils.BodyUtils;
 import com.ranacalva.infiniterunner.utils.Constants;
 import com.ranacalva.infiniterunner.utils.WorldUtils;
@@ -132,6 +134,11 @@ public class GameStage extends Stage implements ContactListener {
             runner.jump();
         }else if(leftSideTouched(touchPoint.x,touchPoint.y)){
             runner.dodge();
+        }
+
+        if(runner.isHit())
+        {
+            setUpWorld();
         }
 
         return super.touchDown(x, y, pointer, button);
