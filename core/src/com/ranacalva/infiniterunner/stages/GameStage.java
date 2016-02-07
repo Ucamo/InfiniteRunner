@@ -24,6 +24,7 @@ import com.ranacalva.infiniterunner.actors.Runner;
 import com.ranacalva.infiniterunner.screens.GameScreen;
 import com.ranacalva.infiniterunner.utils.BodyUtils;
 import com.ranacalva.infiniterunner.utils.Constants;
+import com.ranacalva.infiniterunner.utils.SoundUtils;
 import com.ranacalva.infiniterunner.utils.WorldUtils;
 
 
@@ -132,6 +133,7 @@ public class GameStage extends Stage implements ContactListener {
 
         if (rightSideTouched(touchPoint.x, touchPoint.y)) {
             runner.jump();
+
         }else if(leftSideTouched(touchPoint.x,touchPoint.y)){
             runner.dodge();
         }

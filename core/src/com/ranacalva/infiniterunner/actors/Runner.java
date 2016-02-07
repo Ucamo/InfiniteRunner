@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.ranacalva.infiniterunner.box2d.RunnerUserData;
 import com.ranacalva.infiniterunner.utils.Constants;
+import com.ranacalva.infiniterunner.utils.SoundUtils;
 
 public class Runner extends GameActor {
 
@@ -20,6 +21,7 @@ public class Runner extends GameActor {
     private TextureRegion jumpingTexture;
     private TextureRegion dodgingTexture;
     private TextureRegion hitTexture;
+    private SoundUtils soundUtils = new SoundUtils();
 
     private float stateTime;
 
@@ -70,6 +72,7 @@ public class Runner extends GameActor {
         if (!jumping || dodging) {
             body.applyLinearImpulse(getUserData().getJumpingLinearImpulse(), body.getWorldCenter(), true);
             jumping = true;
+            soundUtils.PlaySound_Jump();
         }
     }
 
@@ -96,6 +99,7 @@ public class Runner extends GameActor {
     public void hit(){
         body.applyAngularImpulse(getUserData().getHitAngularImpulse(),true);
         hit=true;
+        soundUtils.PlaySound_Hit();
     }
 
     public boolean isHit(){
