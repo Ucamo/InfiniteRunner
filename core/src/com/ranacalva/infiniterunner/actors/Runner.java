@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.ranacalva.infiniterunner.box2d.RunnerUserData;
 import com.ranacalva.infiniterunner.utils.Constants;
@@ -15,6 +16,7 @@ public class Runner extends GameActor {
 
     private boolean dodging;
     private boolean jumping;
+    private boolean secondJump;
     private boolean hit;
 
     private Animation runningAnimation;
@@ -69,15 +71,31 @@ public class Runner extends GameActor {
     }
 
     public void jump() {
+        if(secondJump){
+            secondJump();
+            secondJump=false;
+        }
         if (!jumping || dodging) {
             body.applyLinearImpulse(getUserData().getJumpingLinearImpulse(), body.getWorldCenter(), true);
             jumping = true;
+            soundUtils.PlaySound_Jump();
+            secondJump=true;
+        }
+
+    }
+
+    public void secondJump(){
+        if(secondJump) {
+            Vector2 vel = body.getLinearVelocity();
+            vel.y=15;
+            body.setLinearVelocity(vel);
             soundUtils.PlaySound_Jump();
         }
     }
 
     public void landed(){
         jumping=false;
+        secondJump=false;
     }
 
     public void dodge(){
