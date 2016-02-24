@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r6">
+    <folder id="0" name="tail">
+        <file id="0" name="tail/pointTail.png" width="597" height="147" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="tail/baseTail.png" width="673" height="286" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="1" name="body">
+        <file id="0" name="body/body.png" width="973" height="521" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="2" name="head">
+        <file id="0" name="head/head.png" width="573" height="381" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="head/head_jaw.png" width="331" height="182" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="3" name="legs">
+        <file id="0" name="legs/leg_base.png" width="294" height="524" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="legs/leg_point.png" width="194" height="312" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="legs/feet.png" width="226" height="79" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="4" name="arm">
+        <file id="0" name="arm/entireArm.png" width="166" height="252" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="5" name="eye">
+        <file id="0" name="eye/eye_base.png" width="105" height="109" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="eye/eye_white.png" width="68" height="75" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="eye/eye_ball.png" width="42" height="43" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="eye/eye_ceja.png" width="81" height="54" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="15" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="13" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="0" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="1" key="0" z_index="3"/>
+                    <object_ref id="4" timeline="2" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="3" key="0" z_index="5"/>
+                    <object_ref id="6" timeline="4" key="0" z_index="6"/>
+                    <object_ref id="7" timeline="5" key="0" z_index="7"/>
+                    <object_ref id="8" timeline="6" key="0" z_index="8"/>
+                    <object_ref id="9" timeline="7" key="0" z_index="9"/>
+                    <object_ref id="10" timeline="8" key="0" z_index="10"/>
+                    <object_ref id="11" timeline="9" key="0" z_index="11"/>
+                    <object_ref id="12" timeline="10" key="0" z_index="12"/>
+                    <object_ref id="13" timeline="11" key="0" z_index="13"/>
+                    <object_ref id="14" timeline="12" key="0" z_index="14"/>
+                    <object_ref id="15" timeline="14" key="0" z_index="15"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="24.326558" y="-75.669592" pivot_x="0.497766" pivot_y="0.493916"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="head">
+                <key id="0" spin="0">
+                    <object folder="2" file="0" x="339.110109" y="1.220355" pivot_x="0.038539" pivot_y="0.279645" angle="358.81429"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="head_jaw">
+                <key id="0" spin="0">
+                    <object folder="2" file="1" x="522.82583" y="94.88901" pivot_x="-0.001506" pivot_y="1.012037" angle="358.503039" scale_x="1"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="baseTail">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="-308.535147" y="-29.711461" pivot_x="0.927039" pivot_y="0.481731"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="pointTail">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-781.457991" y="8.170106" pivot_x="0.87691" pivot_y="0.438002"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="leg_base">
+                <key id="0" spin="0">
+                    <object folder="3" file="0" x="5.36317" y="-170.537658" pivot_x="0.542235" pivot_y="0.767387"/>
+                </key>
+            </timeline>
+            <timeline id="6" name="leg_point">
+                <key id="0" spin="0">
+                    <object folder="3" file="1" x="88.040033" y="-538.581264" pivot_x="0.23416" pivot_y="0.823199"/>
+                </key>
+            </timeline>
+            <timeline id="7" name="feet">
+                <key id="0" spin="0">
+                    <object folder="3" file="2" x="187.338781" y="-758.276008" pivot_x="0.257993" pivot_y="0.711492"/>
+                </key>
+            </timeline>
+            <timeline id="8" name="entireArm">
+                <key id="0" spin="0">
+                    <object folder="4" file="0" x="313.129805" y="-180.926431" pivot_x="0.273421" pivot_y="0.78127" angle="16.944703"/>
+                </key>
+            </timeline>
+            <timeline id="9" name="eye_base">
+                <key id="0" spin="0">
+                    <object folder="5" file="0" x="627.458156" y="188.698094" pivot_x="0.461199" pivot_y="0.511584"/>
+                </key>
+            </timeline>
+            <timeline id="10" name="eye_white">
+                <key id="0" spin="0">
+                    <object folder="5" file="1" x="601.612903" y="230.645161"/>
+                </key>
+            </timeline>
+            <timeline id="11" name="eye_ball">
+                <key id="0" spin="0">
+                    <object folder="5" file="2" x="646.737434" y="183.089076" pivot_x="0.536759" pivot_y="0.47544"/>
+                </key>
+            </timeline>
+            <timeline id="12" name="eye_ceja">
+                <key id="0" spin="0">
+                    <object folder="5" file="3" x="635.505704" y="225.022287" pivot_x="0.478167" pivot_y="0.477713"/>
+                </key>
+            </timeline>
+            <timeline id="13" name="leg_base_000">
+                <key id="0" spin="0">
+                    <object folder="3" file="0" x="-121.959322" y="-206.48119" pivot_x="0.584322" pivot_y="0.73119"/>
+                </key>
+            </timeline>
+            <timeline id="14" name="leg_point_000">
+                <key id="0" spin="0">
+                    <object folder="3" file="1" x="-74.775" y="-553.483626" pivot_x="0.275" pivot_y="0.858626" angle="249.216303" scale_x="1"/>
+                </key>
+            </timeline>
+            <timeline id="15" name="feet_000">
+                <key id="0" spin="0">
+                    <object folder="3" file="2" x="-327.865639" y="-553.345312" pivot_x="0.240639" pivot_y="0.720312" angle="264.069155" scale_x="1" scale_y="1"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

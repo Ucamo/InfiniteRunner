@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="r6">
+    <folder id="0" name="body">
+        <file id="0" name="body/body.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="1" name="head">
+        <file id="0" name="head/head.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="head/head_jaw.png" width="128" height="128" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="head/eye_base.png" width="32" height="32" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="entity_000">
+        <animation id="0" name="NewAnimation" length="1000" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="0" z_index="3"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="body">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-11.961089" y="-25.241245" pivot_x="0.461089" pivot_y="0.741245"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="head">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="56.25641" y="-1.047108" pivot_x="0.012821" pivot_y="0.585569"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="head_jaw">
+                <key id="0" spin="0">
+                    <object folder="1" file="1" x="93" y="10" angle="356.896837" scale_x="1"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="eye_base">
+                <key id="0" spin="0">
+                    <object folder="1" file="2" x="116.346154" y="43.269231"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
