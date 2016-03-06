@@ -217,12 +217,12 @@
             </timeline>
             <timeline id="27" name="entireArm_000">
                 <key id="0" spin="0">
-                    <object folder="4" file="0" x="30.257843" y="-32.336862" pivot_x="0.279364" pivot_y="0.785193" angle="83.913529"/>
+                    <object folder="4" file="0" x="32.006076" y="-32.598936" pivot_x="0.279364" pivot_y="0.785193" angle="83.913529"/>
                 </key>
             </timeline>
             <timeline id="28" obj="11" name="bone_013" object_type="bone">
                 <key id="0" spin="0">
-                    <bone x="632.713086" y="-103.381952" angle="317.934053"/>
+                    <bone x="633.835343" y="-104.7478" angle="317.934053"/>
                 </key>
             </timeline>
             <timeline id="29" obj="12" name="bone_011" object_type="bone">

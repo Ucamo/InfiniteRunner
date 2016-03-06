@@ -76,9 +76,11 @@ public class Runner extends GameActor {
             secondJump=false;
         }
         if (!jumping || dodging) {
-            body.applyLinearImpulse(getUserData().getJumpingLinearImpulse(), body.getWorldCenter(), true);
-            jumping = true;
+            Vector2 vel = body.getLinearVelocity();
+            vel.y=15;
+            body.setLinearVelocity(vel);
             soundUtils.PlaySound_Jump();
+            jumping = true;
             secondJump=true;
         }
 
@@ -90,6 +92,7 @@ public class Runner extends GameActor {
             vel.y=15;
             body.setLinearVelocity(vel);
             soundUtils.PlaySound_Jump();
+            jumping = true;
         }
     }
 
